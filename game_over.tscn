@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bndq0xxhto2ik"]
+
+[ext_resource type="Texture2D" uid="uid://bnqsln0fhfdhq" path="res://GameOver.png" id="1_75tad"]
+
+[node name="GameOver" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = -1
+anchor_right = 0.998
+anchor_bottom = 1.005
+offset_left = 1.0
+offset_right = 1.30396
+offset_bottom = -0.23999
+color = Color(0.0431373, 0.0431373, 0.0666667, 1)
+
+[node name="GameOver" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(602, 301)
+scale = Vector2(7.59259, 5.19444)
+texture = ExtResource("1_75tad")

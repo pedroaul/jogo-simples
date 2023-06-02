@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://cj7538laewdda"]
+
+[ext_resource type="FontFile" uid="uid://b4jc37yf4v15h" path="res://Bebas_Neue/BebasNeue-Regular.ttf" id="1_6w5b1"]
+[ext_resource type="Texture2D" uid="uid://c6wm3ya1rl3av" path="res://icone.png" id="1_k1eqx"]
+[ext_resource type="Script" path="res://dimantes.gd" id="1_ykh84"]
+[ext_resource type="Script" path="res://vidaAtual.gd" id="3_s8fpq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fqojs"]
+font = ExtResource("1_6w5b1")
+font_size = 50
+font_color = Color(1, 0.317647, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_u28i7"]
+font = ExtResource("1_6w5b1")
+font_size = 28
+font_color = Color(1, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ku86l"]
+font = ExtResource("1_6w5b1")
+font_size = 35
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="dimantes" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.051
+anchor_right = 0.079
+anchor_bottom = 0.068
+offset_left = -1.752
+offset_right = -0.00800323
+offset_bottom = 0.935997
+text = "00"
+label_settings = SubResource("LabelSettings_fqojs")
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("1_ykh84")
+
+[node name="Icone" type="Sprite2D" parent="."]
+position = Vector2(24, 21)
+scale = Vector2(0.324089, 0.288496)
+texture = ExtResource("1_k1eqx")
+
+[node name="vidaAtual" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.917
+anchor_top = 0.026
+anchor_right = 0.979
+anchor_bottom = 0.111
+offset_left = -0.384033
+offset_top = 0.152
+offset_right = -35.808
+offset_bottom = -29.928
+scale = Vector2(2, 2)
+text = "00"
+label_settings = SubResource("LabelSettings_u28i7")
+script = ExtResource("3_s8fpq")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.862
+anchor_top = 0.036
+anchor_right = 0.912
+anchor_bottom = 0.129
+offset_left = 9.97595
+offset_top = 4.672
+offset_right = 0.375977
+offset_bottom = -9.592
+text = "VIDA"
+label_settings = SubResource("LabelSettings_ku86l")

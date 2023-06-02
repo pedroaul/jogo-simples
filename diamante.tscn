@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://k1lto8d14fdm"]
+
+[ext_resource type="Texture2D" uid="uid://d4k36lpswncxq" path="res://diamante.png.png" id="1_fv6yt"]
+[ext_resource type="Script" path="res://diamante.gd" id="1_lx5if"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyik5"]
+atlas = ExtResource("1_fv6yt")
+region = Rect2(0, 0, 149, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs37s"]
+atlas = ExtResource("1_fv6yt")
+region = Rect2(149, 0, 149, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2iqio"]
+atlas = ExtResource("1_fv6yt")
+region = Rect2(0, 144, 149, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ht1xi"]
+atlas = ExtResource("1_fv6yt")
+region = Rect2(149, 144, 149, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqr5u"]
+atlas = ExtResource("1_fv6yt")
+region = Rect2(0, 288, 149, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrocq"]
+atlas = ExtResource("1_fv6yt")
+region = Rect2(149, 288, 149, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e6w6x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyik5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs37s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2iqio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ht1xi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqr5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrocq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rnime"]
+radius = 19.8276
+
+[node name="diamante" type="Area2D"]
+script = ExtResource("1_lx5if")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(163.25, 112)
+scale = Vector2(0.385906, 0.305556)
+sprite_frames = SubResource("SpriteFrames_e6w6x")
+autoplay = "default"
+frame_progress = 0.907115
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(165, 110)
+scale = Vector2(1.16, 0.720001)
+shape = SubResource("CircleShape2D_rnime")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

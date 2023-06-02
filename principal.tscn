@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://dng0w6r548tff"]
+
+[ext_resource type="PackedScene" uid="uid://chi0omgkp2o2q" path="res://persoangem.tscn" id="1_li134"]
+[ext_resource type="PackedScene" uid="uid://bvov0ti78ll2l" path="res://mapa.tscn" id="2_oubb0"]
+[ext_resource type="PackedScene" uid="uid://k1lto8d14fdm" path="res://diamante.tscn" id="3_xc46n"]
+[ext_resource type="PackedScene" uid="uid://cj7538laewdda" path="res://hud.tscn" id="5_8xicb"]
+[ext_resource type="PackedScene" uid="uid://b6v3joxnkwps6" path="res://inimigo.tscn" id="5_jblsf"]
+[ext_resource type="Texture2D" uid="uid://c68r78pamlkkx" path="res://Tiles/Assets/Background_2.png" id="6_218ex"]
+[ext_resource type="Texture2D" uid="uid://cxjak0wx3m8nw" path="res://Tiles/Assets/Background_1.png" id="7_sjfmk"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(-18, 0)
+scale = Vector2(0.990125, 1.0318)
+
+[node name="TileMap" parent="." instance=ExtResource("2_oubb0")]
+
+[node name="personagem" parent="." instance=ExtResource("1_li134")]
+show_behind_parent = true
+position = Vector2(317.132, -3.87672)
+
+[node name="inimigo" parent="." instance=ExtResource("5_jblsf")]
+position = Vector2(520.136, 321.768)
+scale = Vector2(0.725935, 0.694115)
+
+[node name="diamante" parent="." instance=ExtResource("3_xc46n")]
+position = Vector2(702.941, 263.618)
+scale = Vector2(0.75, 0.75)
+
+[node name="diamante7" parent="." instance=ExtResource("3_xc46n")]
+position = Vector2(-62.6184, 123.086)
+scale = Vector2(0.75, 0.75)
+
+[node name="diamante6" parent="." instance=ExtResource("3_xc46n")]
+position = Vector2(656.483, 124.055)
+scale = Vector2(0.75, 0.75)
+
+[node name="diamante5" parent="." instance=ExtResource("3_xc46n")]
+position = Vector2(576.695, 124.055)
+scale = Vector2(0.75, 0.75)
+
+[node name="diamante2" parent="." instance=ExtResource("3_xc46n")]
+position = Vector2(274.713, 263.617)
+scale = Vector2(0.75, 0.75)
+
+[node name="diamante3" parent="." instance=ExtResource("3_xc46n")]
+position = Vector2(573.665, 263.618)
+scale = Vector2(0.75, 0.75)
+
+[node name="diamante4" parent="." instance=ExtResource("3_xc46n")]
+position = Vector2(2.01995, 189.959)
+scale = Vector2(0.692833, 0.646034)
+
+[node name="HUD" parent="." instance=ExtResource("5_8xicb")]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, -1000)
+scale = Vector2(6, 6)
+motion_scale = Vector2(0.8, 1)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(-212.333, 100.167)
+scale = Vector2(1.59274, 0.998775)
+texture = ExtResource("6_218ex")
+centered = false
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
+position = Vector2(0, -1000)
+scale = Vector2(6, 6)
+motion_scale = Vector2(0.6, 1)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(5, 147.167)
+scale = Vector2(1.16129, 0.698529)
+texture = ExtResource("7_sjfmk")
+centered = false

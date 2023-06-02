@@ -1,0 +1,194 @@
+[gd_scene load_steps=21 format=3 uid="uid://b6v3joxnkwps6"]
+
+[ext_resource type="Texture2D" uid="uid://dqcdkfw8v1utu" path="res://idlemons.png" id="1_th2nf"]
+[ext_resource type="Script" path="res://inimigo.gd" id="1_uq14e"]
+[ext_resource type="Texture2D" uid="uid://kffxiqxj75y7" path="res://damageMons.png" id="2_tgh7i"]
+[ext_resource type="Texture2D" uid="uid://cjrek6a0ctmve" path="res://runmons.png" id="3_b6hl7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vdmoe"]
+size = Vector2(91.6108, 117.943)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15qrf"]
+atlas = ExtResource("2_tgh7i")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwi0a"]
+atlas = ExtResource("2_tgh7i")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qa7x8"]
+atlas = ExtResource("2_tgh7i")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2xeo"]
+atlas = ExtResource("2_tgh7i")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8n8f"]
+atlas = ExtResource("1_th2nf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyth7"]
+atlas = ExtResource("1_th2nf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckakj"]
+atlas = ExtResource("1_th2nf")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgfs2"]
+atlas = ExtResource("1_th2nf")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyljk"]
+atlas = ExtResource("3_b6hl7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gkmg"]
+atlas = ExtResource("3_b6hl7")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kxcw"]
+atlas = ExtResource("3_b6hl7")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0i35o"]
+atlas = ExtResource("3_b6hl7")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4e6me"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15qrf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwi0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qa7x8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2xeo")
+}],
+"loop": false,
+"name": &"damage",
+"speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8n8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tyth7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckakj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgfs2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyljk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1gkmg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kxcw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0i35o")
+}],
+"loop": true,
+"name": &"monsAttack",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15h4w"]
+size = Vector2(25, 85)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_swrpc"]
+size = Vector2(281.75, 81.5)
+
+[node name="inimigo" type="CharacterBody2D"]
+position = Vector2(337, 354)
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("1_uq14e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 9
+visibility_layer = 9
+position = Vector2(57.5, 38.75)
+scale = Vector2(0.993333, 0.716448)
+shape = SubResource("RectangleShape2D_vdmoe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(60, 37)
+scale = Vector2(3.58996, 2.8288)
+sprite_frames = SubResource("SpriteFrames_4e6me")
+animation = &"damage"
+autoplay = "idle"
+frame = 3
+frame_progress = 1.0
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(57, 41)
+target_position = Vector2(-96, 0)
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2(63, 41)
+target_position = Vector2(92, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(99, 39)
+
+[node name="matarDi" type="CollisionShape2D" parent="Area2D"]
+light_mask = 8
+visibility_layer = 8
+shape = SubResource("RectangleShape2D_15h4w")
+
+[node name="matarEs" type="CollisionShape2D" parent="Area2D"]
+light_mask = 8
+visibility_layer = 8
+position = Vector2(-84.5, -0.5)
+shape = SubResource("RectangleShape2D_15h4w")
+
+[node name="Direita" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direita"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(233, 40)
+shape = SubResource("RectangleShape2D_swrpc")
+
+[node name="Esquerda" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Esquerda"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(-95, 40)
+shape = SubResource("RectangleShape2D_swrpc")
+
+[node name="danudo" type="Timer" parent="."]
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="child_entered_tree" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_child_entered_tree"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="area_entered" from="Direita" to="." method="_on_direita_area_entered"]
+[connection signal="area_exited" from="Direita" to="." method="_on_direita_area_exited"]
+[connection signal="area_entered" from="Esquerda" to="." method="_on_esquerda_area_entered"]
+[connection signal="area_exited" from="Esquerda" to="." method="_on_esquerda_area_exited"]
+[connection signal="timeout" from="danudo" to="." method="_on_danudo_timeout"]
